@@ -15,16 +15,20 @@ const CanvasModel = () => {
         snap.isHome && "pt-[12em] md:pt-0"
       }`}
     >
-      <Canvas>
+      <Canvas
+        shadows
+        camera={{ position: [0, 0, 0], fov: 23 }}
+        gl={{ preserveDrawingBuffer: true }}
+        className="w-full max-w-full h-full transition-all ease-in"
+      >
         <ambientLight intensity={0.5} />
         <Environment preset="city" />
         <CameraRig>
+          <Backdrop />
           <Center>
             <Shirt />
           </Center>
         </CameraRig>
-
-        {/* <Backdrop /> */}
       </Canvas>
     </div>
   );
