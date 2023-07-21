@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import CustomButton from "./CustomButton";
 
 function FilePicker({ file, setFile, readFile }) {

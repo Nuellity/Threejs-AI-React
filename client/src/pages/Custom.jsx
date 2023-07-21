@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { AnimatePresence, motion } from "framer-motion";
 import { slideAnimation, fadeAnimation } from "../config/motion";
 import { download } from "../assets";
@@ -32,10 +33,36 @@ function Custom() {
       case "filepicker":
         return <FilePicker file={file} setFile={setFile} readFile={readFile} />;
       case "aipicker":
-        return <AIPicker />;
+        return (
+          <AIPicker
+            prompt={prompt}
+            setPrompt={setPrompt}
+            generateImg={generateImg}
+            handleSubmit={handleSubmit}
+          />
+        );
 
       default:
         return null;
+    }
+  };
+
+  const handleSubmit = async (type) => {
+    if (!prompt) return alert("Please enter a prompt.");
+    try {
+      setGenerateImg(true);
+      const res = await fetch("http://localhost:4000/api/dalle", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ prompt }),
+      });
+      const data = await res.json();
+      handleDecals(type, `data:image/png;base64,${data.photo}`);
+    } catch (error) {
+      alert(error);
+    } finally {
+      setGenerateImg(false);
+      setActiveEditTab("");
     }
   };
 
