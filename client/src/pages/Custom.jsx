@@ -57,7 +57,9 @@ function Custom() {
         body: JSON.stringify({ prompt }),
       });
       const data = await res.json();
-      handleDecals(type, `data:image/png;base64,${data.photo}`);
+      console.log(data.b64json);
+
+      handleDecals(type, `data:image/png;base64, ${data.b64json}`);
     } catch (error) {
       alert(error);
     } finally {
@@ -150,6 +152,13 @@ function Custom() {
                 isFilterTab
               />
             ))}
+            <button className="download-btn" onClick={downloadCanvasToImage}>
+              <img
+                src={download}
+                alt="download_image"
+                className="w-3/5 h-3/5 object-contain"
+              />
+            </button>
           </motion.div>
         </>
       )}
