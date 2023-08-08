@@ -11,6 +11,7 @@ app.use(express.json({ limit: "50mb" }));
 
 app.use("/api/dalle", dalleRoute);
 
-app.listen(4000, () => {
-  console.log("listening on port 5000");
+const port = 4000;
+app.listen(port, () => {
+  console.log(`listening on port ${port}`);
 });
