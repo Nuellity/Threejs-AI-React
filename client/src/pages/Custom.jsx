@@ -51,7 +51,7 @@ function Custom() {
     if (!prompt) return alert("Please enter a prompt.");
     try {
       setGenerateImg(true);
-      const res = await fetch("https://ai-api-c2qa.onrender.com/", {
+      const res = await fetch("https://shoe-api-mlha.onrender.com/api/dalle", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ prompt }),
