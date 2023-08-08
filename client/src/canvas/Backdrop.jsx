@@ -3,6 +3,7 @@ import { useRef } from "react";
 
 function Backdrop() {
   const shadows = useRef();
+
   return (
     <AccumulativeShadows
       ref={shadows}
@@ -17,15 +18,15 @@ function Backdrop() {
         ambient={0.25}
         amount={4}
         radius={9}
-        intensity={0.55}
+        intensity={0.5}
         position={[5, 5, -10]}
       />
       <RandomizedLight
-        ambient={0.45}
+        ambient={0.8}
         amount={5}
         radius={9}
-        intensity={0.45}
-        position={[-6, 2, 10]}
+        intensity={0.25}
+        position={[6, 8, -5]}
       />
     </AccumulativeShadows>
   );

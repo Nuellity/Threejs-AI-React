@@ -11,8 +11,8 @@ const CanvasModel = () => {
   const snap = useSnapshot(state);
   return (
     <div
-      className={`flex justify-center items-center h-screen w-screen ${
-        snap.isHome && "pt-[12em] md:pt-0"
+      className={`flex justify-center items-end md:items-center h-screen w-screen ${
+        snap.isHome && "pt-0 md:pt-0"
       }`}
     >
       <Canvas

@@ -51,14 +51,12 @@ function Custom() {
     if (!prompt) return alert("Please enter a prompt.");
     try {
       setGenerateImg(true);
-      const res = await fetch("http://localhost:4000/api/dalle", {
+      const res = await fetch("https://ai-api-c2qa.onrender.com/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ prompt }),
       });
       const data = await res.json();
-      console.log(data.b64json);
-
       handleDecals(type, `data:image/png;base64, ${data.b64json}`);
     } catch (error) {
       alert(error);
@@ -120,7 +118,11 @@ function Custom() {
                     key={tab.name}
                     tab={tab}
                     handleClick={() => {
-                      setActiveEditTab(tab.name);
+                      if (activeEditTab === tab.name) {
+                        setActiveEditTab("");
+                      } else {
+                        setActiveEditTab(tab.name);
+                      }
                     }}
                   />
                 ))}
