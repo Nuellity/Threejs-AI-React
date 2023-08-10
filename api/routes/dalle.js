@@ -1,7 +1,6 @@
 import express from "express";
 import axios from "axios";
 import * as dotenv from "dotenv";
-import { Configuration, OpenAIApi } from "openai";
 import { Leap } from "@leap-ai/sdk";
 
 dotenv.config();
