@@ -85,3 +85,11 @@ The API application will be available at `http://localhost:4000`.
 ### Deployment
 
 To deploy the application, you can use a service like Render or Vercel.
+
+## Contributing
+
+Contributions are welcome! Please open an issue or a pull request if you have any ideas for improvements.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/Nuellity/Threejs-AI-React/blob/main/LICENSE) file for details.
